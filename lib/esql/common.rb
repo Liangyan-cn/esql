@@ -1,14 +1,15 @@
-class Esql < Erubis::Eruby
+class Esql::Base < Erubis::Eruby
   class << self
     def to_sql(esql_file, context = {})
       to_esql(esql_file).to_sql(context)
     end
 
     def to_esql(esql_file, default_context = {})
-      Esql.new(esql_file, default_context)
+      Esql::Base.new(esql_file, default_context)
     end
   end
   
+  include Esql::SqlEnhance
   attr_accessor :default_context
 
   def initialize(string, context = {})
@@ -25,6 +26,4 @@ class Esql < Erubis::Eruby
     self.evaluate _context
   end
 
-  #def inspect
-  #end
 end

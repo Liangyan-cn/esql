@@ -6,7 +6,7 @@ JOIN user_role ur ON ur.`user_id` = u.id
 JOIN role r ON r.id = ur.role_id
 WHERE TRUE
 <% if @role_name %>
-  AND r.name = "<%== @role_name %>"
+  AND r.name = '<%== @role_name %>'
 <% end %>
   AND u.network_id = <%= @network_id %>
 ;

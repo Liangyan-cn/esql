@@ -25,7 +25,7 @@ task :esql do
 
   puts "#"*30
   puts "# SQL:\n"
-  puts Esql.to_sql(sql_file, context)
+  puts Esql::Base.to_sql(sql_file, context)
 
   ARGV.each do |arg|
     task arg.to_sym do ; end
